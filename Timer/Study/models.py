@@ -9,11 +9,12 @@ class Subject(models.Model):
 
 
 class StudyRecord(models.Model):
-    User= models.CharField(max_length=500)
-    Subject= models.CharField(max_length=100)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+    subject= models.ForeignKey(Subject, on_delete=models.CASCADE)
     hours = models.FloatField()
-    Date_Studied = models.DateField()
-    created_at = models.DateTimeField()
+    date_studied = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"{self.user_name}"-"{self.Subject_name}"
+        return f"{self.subject}-{self.hours}hrs"
+    
