@@ -1,4 +1,3 @@
-from turtle import home
 from django.http import HttpResponse
 from django.urls import path 
 from django.shortcuts import render
